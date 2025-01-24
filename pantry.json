@@ -1,0 +1,72 @@
+{
+  "meals": [
+    {
+      "mealName": "Scrambled Eggs",
+      "description": "Simple and quick breakfast",
+      "servingSize": 1,
+      "ingredients": [
+        {
+          "name": "Eggs",
+          "servingSize": 2,
+          "servingUnit": "large"
+        },
+        {
+          "name": "Butter",
+          "servingSize": 1,
+          "servingUnit": "tbsp"
+        }
+      ],
+      "instructions": "Whisk eggs and melt butter in a pan. Add eggs to the pan and scramble until cooked."
+    }
+  ],
+  "ingredients": [
+    {
+      "name": "broccoli",
+      "description": "Green vegetable and high in fibre",
+      "servingSize": 1,
+      "servingUnit": "cup",
+      "calories": 55,
+      "macros": {
+        "protein": 4,
+        "carbs": 11,
+        "fats": 0
+      }
+    },
+    {
+      "name": "Eggs",
+      "description": "Rich in protein and versatile for cooking",
+      "servingSize": 1,
+      "servingUnit": "large",
+      "calories": 70,
+      "macros": {
+        "protein": 6,
+        "carbs": 0.5,
+        "fats": 5
+      }
+    },
+    {
+      "name": "Butter",
+      "description": "Dairy product that is high in fats",
+      "servingSize": 1,
+      "servingUnit": "tbsp",
+      "calories": 102,
+      "macros": {
+        "protein": 0.1,
+        "carbs": 0.1,
+        "fats": 11.5
+      }
+    },
+    {
+      "name": "Classic WHEAT Hostess Bread",
+      "description": "White bread that is soft and fluffy",
+      "servingSize": 1,
+      "servingUnit": "slice",
+      "calories": 65,
+      "macros": {
+        "protein": 2.5,
+        "carbs": 6,
+        "fats": 0.75
+      }
+    }
+  ]
+}
