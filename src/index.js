@@ -113,7 +113,7 @@ const lastSevenAverage = () => {
     })
     let average = sum / count;
 
-    weekWeight.innerText += `Last 7 entry average weight: ${average.toPrecision(4) } kg`;
+    weekWeight.innerText += `Last 7 entry average weight: ${average.toPrecision(4)} kg`;
 }
 try {
     const wtForm = document.getElementById("weight-form");
@@ -138,6 +138,43 @@ try {
 document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("weight-tablebody") && loadWeightTable();
     document.getElementById("weight-tablebody") && lastSevenAverage()
+
 });
+
+const displayListIngredient = (ingredient) => {
+    return ` <li class="list-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-2 me-auto">
+            <div class="fw-bold">${ingredient.name}</div>
+            ${ingredient.description}
+            </div>
+            <span class="badge bg-primary rounded-pill">${ingredient.calories} kcal</span>
+        </li>`
+}
+
+const displayFilteredIngredients = (ingredients) => {
+    const ingredientContainer = document.getElementById("filtered-ingredients");
+    ingredientContainer.innerHTML = '';
+    ingredients.forEach(ingredient =>
+        ingredientContainer.innerHTML += displayListIngredient(ingredient))
+}
+
+const searchIngredientByKeyword = (keyword) => {
+    if (!keyword)
+        return [];
+    const filteredIngredients = pantry.ingredients
+        .filter(ingredient => ingredient.name.toLowerCase().includes(keyword.toLowerCase()));
+    return filteredIngredients;
+}
+
+try {
+    const filterInput = document.getElementById("keyword");
+    filterInput.addEventListener("input", (event) => {
+        let keyword = event.target.value;
+        const filteredIngredients = searchIngredientByKeyword(keyword);
+        displayFilteredIngredients(filteredIngredients);
+    })
+} catch (error) {
+
+}
 
 
