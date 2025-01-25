@@ -264,8 +264,96 @@ try {
     })
 
 } catch (error) {
+}
+
+//Get details of user from localstorage 
+//if user exists return
+//if user does not exists then show user details form
+
+const renderForm = () => {
+    return `<h4 class="display-5 mb-4 mt-3">User Details</h1>
+      <form id="user-form">
+          <div class="mb-3">
+          <label for="gender-user" class="form-label fw-bold">Gender</label>
+            <select class="form-select" name="gender-user">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+          </div>
+        <label for="user-height" class="form-label fw-bold">Height</label>
+        <div class="input-group mb-3">
+            <input required type="number" step="0.01" class="form-control" name="user-height">
+            <span class="input-group-text">cm</span>
+          </div>
+        <label for="user-age" class="form-label fw-bold">Age</label>
+        <div class="input-group mb-3">
+          <input required type="number" step="0.01" class="form-control" name="user-age">
+          <span class="input-group-text">years</span>
+          </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>`
+}
+
+const displayForm = () => {
+    const userDetailsContainer = document.getElementById("user-details");
+    userDetailsContainer.innerHTML = '';
+    userDetailsContainer.innerHTML += renderForm();
+}
+
+let user = JSON.parse(localStorage.getItem("user"));
+if (!user)
+    displayForm();
+
+try {
+    const userForm = document.getElementById("user-form");
+    userForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const formData = new FormData(userForm);
+        user = {
+            gender: formData.get("gender-user"),
+            height: formData.get("user-height"),
+            age: formData.get("user-age"),
+        }
+
+        localStorage.setItem("user", JSON.stringify(user));
+        userForm.reset();
+    })
+
+} catch (error) {
+}
+let BMR = 0;
+const calculateBMR = () => {
+    const date = getSortedDates()[0];
+    const weight = weights[date];
+    if (user.gender == "female")
+        BMR = 655 + (9.6 * weight) + (1.8 * user.height) - (4.7 * user.age);
+    else
+        BMR = 66 + (13.7 * weight) + (5 * user.height) - (6.8 * user.age);
+}
+
+try {
+    calculateBMR();
+    const calorieContainer = document.getElementById('calorie-container');
+    calorieContainer.innerHTML +=
+        `
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <span class="fw-bold">Calorie Consumption</span>
+            <div class="mb-2">To support your weight loss goals, we've calculated a personalized calorie intake target by taking your Basal Metabolic Rate (BMR) and reducing it by 150 calories, considering your lifestyle and activity level.</div>
+            <ul class="calorie-level">
+                <li>Sedentary Life- <span class="badge bg-primary rounded-pill">${(BMR * 1.2 - 150).toPrecision(6)} kcal</span></li>
+                <li>Moderately - <span class="badge bg-info rounded-pill">${BMR * 1.55 - 150} kcal</span></li>
+            </ul>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+        `
+} catch (error) {
 
 }
+
+
+
+
+
 
 
 
