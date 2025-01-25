@@ -15,8 +15,7 @@
           "servingSize": 1,
           "servingUnit": "tbsp"
         }
-      ],
-      "instructions": "Whisk eggs and melt butter in a pan. Add eggs to the pan and scramble until cooked."
+      ]
     }
   ],
   "ingredients": [
@@ -66,6 +65,18 @@
         "protein": 2.5,
         "carbs": 6,
         "fats": 0.75
+      }
+    },
+    {
+      "name": "Chicken Ramen Flavor Express",
+      "description": "Chicken Ramen Flavor Express by Chef Woo",
+      "servingSize": 1,
+      "servingUnit": "qt",
+      "calories": 370,
+      "macros": {
+        "protein": 7,
+        "carbs": 52,
+        "fats": 15
       }
     }
   ]

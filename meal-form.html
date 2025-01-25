@@ -25,8 +25,8 @@
         </div>
     </nav>
 
-    <div class="container mt-2">
-        <form id="ingrForm">
+    <div class="container mt-2 p-3">
+        <form id="mealForm">
         <h1 class="display-4">Add Meal</h1>
         <div class="mb-3">  
             <label for="mealname" class="form-label fw-bold">Meal Name</label>
@@ -45,15 +45,27 @@
     <input required type="text" class="form-control" id="keyword" name="ingredients">
     <a target="_blank" rel="noopener noreferrer" href="./ingredients-form.html">Add Ingredients?</a>
   </div>
-  <div>
+  <div class="mb-5">
     <ul id="filtered-ingredients" class="list-group list-group-numbered mb-2">          
     </ul>
   </div>
-    <label for="instructions" class="form-label fw-bold">Instructions</label>
-     <div class="input-group">
-      <input required type="number" class="form-control ms-2" name="instructions">
-    </div>
-  <button type="submit" class="btn btn-primary btn-lg mt-2">Submit</button>
+  <hr />
+    <table class="table">
+        <thead>
+            <tr>
+            <th scope="col">Meal name</th>
+            <th scope="col">Calories</th>
+            <th scope="col">Serving Size</th>
+            <th scope="col">Serving Unit</th>
+            </tr>
+        </thead>
+        <tbody id="selected-ingredient-table">
+        </tbody>
+    </table>
+    <span id="total-calories" class="fw-bold">Total Calories : 0 Kcal</span> <br/>
+      <hr/>
+
+  <button type="submit" class="btn btn-primary btn-lg mt-5">Submit</button>
 </form>
     </div>
 
